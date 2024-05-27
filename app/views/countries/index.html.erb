@@ -1,0 +1,26 @@
+<div>
+  <h1>Countries</h1>
+  <%# if current_user.admin?  %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t("activerecord.country.create_new_country"), new_country_path %>
+  </button>
+  <%# end %>
+  <table class="table  table-striped">
+    <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("activerecord.country.attributes.title") %></th>
+      <th scope="col"><%= I18n.t("activerecord.country.attributes.description") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><a href="<%= country_path(country) %>">
+          <h5> <%= country.title %></h5>
+        </a></td>
+        <td><%= country.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

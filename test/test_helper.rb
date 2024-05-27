@@ -1,6 +1,10 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require 'minitest/rails'
+require 'capybara/rails'
+require 'mocha/minitest'
+require 'webmock/minitest'
 
 module ActiveSupport
   class TestCase
@@ -12,4 +16,8 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
   end
+end
+
+class ActionController::TestCase
+  include Devise::Test::ControllerHelpers
 end
