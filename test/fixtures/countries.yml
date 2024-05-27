@@ -5,8 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
-       email: email@mail.com
-
+  title: Bel
 }
 # column: value
 #

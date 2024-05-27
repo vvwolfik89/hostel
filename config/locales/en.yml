@@ -29,3 +29,9 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+      country:
+        attributes:
+          title: title
+          description: description
+        create_new_country: Create new Country

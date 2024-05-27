@@ -1,38 +1,39 @@
 require "test_helper"
 
-class HostelsControllerTest < ActionDispatch::IntegrationTest
+class CountriesControllerTest < ActionDispatch::IntegrationTest
+
   test "should get new" do
-    get new_hostel_url
+    get country_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get create_hostels_url
+    get country_create_url
     assert_response :success
   end
 
   test "should get update" do
-    get update_hostel_url
+    get country_update_url
     assert_response :success
   end
 
   test "should get edit" do
-    get hostels_edit_url
+    get country_edit_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get hostels_destroy_url
+    get country_destroy_url
     assert_response :success
   end
 
   test "should get index" do
-    get hostels_url
+    get countries_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get hostels_show_url
+    get country_show_url
     assert_response :success
   end
 end

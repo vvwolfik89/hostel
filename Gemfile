@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  # gem "debug", platforms: %i[ mri windows ]
 end
 
 group :development do
@@ -67,8 +67,18 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webdrivers"
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem "minitest-rails"
+  gem 'mocha'
+  gem 'webmock'
+  gem 'shoulda'
+  gem 'minitest-reporters'
+  gem 'pry'
+  gem 'minitest-rails-capybara'
 end
 
-gem "debase", "~> 0.2.5.beta2"
+# gem "debase", "~> 0.2.5.beta2"
 
 gem "devise"
