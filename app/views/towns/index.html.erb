@@ -1,0 +1,26 @@
+<div>
+  <h1>Towns</h1>
+  <%# if current_user.admin?  %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t("activerecord.town.create_new_town"), new_town_path %>
+  </button>
+  <%# end %>
+  <table class="table  table-striped">
+    <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("activerecord.town.attributes.name") %></th>
+      <th scope="col"><%= I18n.t("activerecord.town.attributes.description") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @towns.each do |town| %>
+      <tr>
+        <td><a href="<%= town_path(town) %>">
+          <h5> <%= town.name %></h5>
+        </a></td>
+        <td><%= town.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
