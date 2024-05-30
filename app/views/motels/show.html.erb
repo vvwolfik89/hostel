@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <div>
+      <h1><%= @motel.name %></h1>
+      <p><%= @motel.description %></p>
+    </div>
+  </div>
+  <div>
+    <%= link_to 'View all towns', motels_path %>
+    <%= link_to 'Edit', edit_motel_path(@motel)%>
+    <%= link_to "Destroy", motel_path(@motel), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :hostels
+  resources :motels
   resources :countries
   resources :towns
   devise_for :users

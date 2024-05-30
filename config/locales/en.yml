@@ -40,3 +40,8 @@ en:
           name: name
           description: description
         create_new_town: Create new Town
+      motel:
+        attributes:
+          name: name
+          description: description
+        create_new_motel: Create new Motel

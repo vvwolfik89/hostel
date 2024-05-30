@@ -1,0 +1,26 @@
+<div>
+  <h1>Motels</h1>
+  <%# if current_user.admin?  %>
+  <button type="button" class="btn btn-outline-primary">
+    <%= link_to I18n.t("activerecord.motel.create_new_motel"), new_motel_path %>
+  </button>
+  <%# end %>
+  <table class="table  table-striped">
+    <thead>
+    <tr>
+      <th scope="col"><%= I18n.t("activerecord.motel.attributes.name") %></th>
+      <th scope="col"><%= I18n.t("activerecord.motel.attributes.description") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @motels.each do |motel| %>
+      <tr>
+        <td><a href="<%= motel_path(motel) %>">
+          <h5> <%= motel.name %></h5>
+        </a></td>
+        <td><%= motel.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
