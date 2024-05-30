@@ -1,0 +1,21 @@
+<%= form_with model: @town do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :country_id %><br>
+    <%= form.collection_select :country_id, Country.order(:title), :id, :title %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+

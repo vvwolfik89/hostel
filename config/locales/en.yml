@@ -35,3 +35,8 @@ en:
           title: title
           description: description
         create_new_country: Create new Country
+      town:
+        attributes:
+          name: name
+          description: description
+        create_new_town: Create new Town
