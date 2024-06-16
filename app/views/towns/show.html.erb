@@ -3,14 +3,18 @@
     <div>
       <h1><%= @town.name %></h1>
       <p><%= @town.description %></p>
+      <% @town.motels.each do |m| %>
+        <p><%= m.name %></p>
+      <% end %>
+
     </div>
   </div>
   <div>
     <%= link_to 'View all towns', towns_path %>
-    <%= link_to 'Edit', edit_town_path(@town)%>
+    <%= link_to 'Edit', edit_town_path(@town) %>
     <%= link_to "Destroy", town_path(@town), data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
     } %>
   </div>
 </div>
