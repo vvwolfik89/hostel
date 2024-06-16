@@ -9,13 +9,34 @@
     <%= form.text_area :description %>
   </div>
 
-<!--  <div>-->
-<!--    <%#= form.label :country_id %><br>-->
-    <%#= form.collection_select :country_id, Country.order(:title), :id, :title %>
-<!--  </div>-->
-
   <div>
-    <%= form.submit %>
+    <%= form.label :town_id %><br>
+    <%= form.collection_select :town_id, Town.order(:name), :id, :name %>
   </div>
-<% end %>
+
+    <div>
+      <%= form.label :images %><br>
+      <%= form.file_field :images, multiple: true %>
+      <% if @motel.images.attached? %>
+        <% @motel.images.each do |image| %>
+          <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+          <%= image_tag rails_storage_proxy_path(image) %>
+          <%= link_to 'Delete image', purge_attachment_path(image),
+                      data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    <!--  <div class="box_image">-->
+    <!--    <div class="box_content">-->
+    <%#= image_tag image %>
+    <%#= check_box_tag "deleted_img_ids[]", image.id %>
+    <!--    </div>-->
+    <!--  </div>-->
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
 

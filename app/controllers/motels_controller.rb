@@ -9,6 +9,7 @@ class MotelsController < ApplicationController
 
   def create
     @motel = Motel.new(resource_params)
+    @motel.images.attach(params[:images])
 
     respond_to do |format|
       if @motel.save
@@ -32,6 +33,8 @@ class MotelsController < ApplicationController
 
   def update
     @motel = Motel.find(params[:id])
+    @motel.images.attach(params[:images])
+
     respond_to do |format|
       if @motel.update(resource_params)
         format.html { redirect_to @motel, notice: 'Motel was successfully updated.' }
@@ -55,7 +58,7 @@ class MotelsController < ApplicationController
   private
 
   def resource_params
-    permited_fields = [ :name, :description, :country_id ]
+    permited_fields = [ :name, :description, :town_id, images: [] ]
     params.require(:motel).permit(permited_fields)
   end
 end

@@ -3,6 +3,11 @@
     <div>
       <h1><%= @motel.name %></h1>
       <p><%= @motel.description %></p>
+      <%= link_to "#{@motel.town.name }", town_path(@motel.town) %>
+      <p><%= %></p>
+      <% @motel.images.each do |img|  %>
+        <%= image_tag rails_storage_proxy_path(img) %>
+      <% end %>
     </div>
   </div>
   <div>

@@ -3,6 +3,7 @@ class CreateMotels < ActiveRecord::Migration[7.1]
     create_table :motels do |t|
       t.string :name
       t.text :description
+      t.integer :town_id
 
       t.timestamps
     end
