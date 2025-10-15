@@ -35,7 +35,39 @@
     <!--    </div>-->
     <!--  </div>-->
 
-    <div>
+  <div id="map" style="width: 50%; height: 400px"></div>
+
+<!--  <script type="module">-->
+<!--      import { lo } from 'special_feature';-->
+
+<!--      initSpecialFeature();-->
+<!--  </script>-->
+
+<!--  <script src="https://api-maps.yandex.ru/2.1/?apikey=334c8aeb-9225-4daa-864f-2ef6abce925e&load=Map&lang=ru_RU" type="text/javascript"></script>-->
+
+<!--  <script>-->
+<!--      ymaps.ready(function () {-->
+<!--          var myMap = new ymaps.Map('map', {-->
+<!--              center: [55.76, 37.64], // Москва, например-->
+<!--              zoom: 10-->
+<!--          });-->
+<!--      });-->
+<!--  </script>-->
+  <div>
+    <%= form.label :latitude %><br>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div>
+    <%= form.label :longitude %><br>
+    <%= form.text_field :longitude %>
+  </div>
+
+
+
+
+
+  <div>
       <%= form.submit %>
     </div>
   <% end %>

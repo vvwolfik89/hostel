@@ -5,11 +5,17 @@ class MotelsController < ApplicationController
 
   def new
     @motel = Motel.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @motel }
+    end
   end
 
   def create
     @motel = Motel.new(resource_params)
     @motel.images.attach(params[:images])
+
+
 
     respond_to do |format|
       if @motel.save
@@ -29,11 +35,23 @@ class MotelsController < ApplicationController
 
   def edit
     @motel = Motel.find(params[:id])
+    # service = SaveGeoPositionService.new(
+    #   # locatable: locatable,
+    #   latitude: params[:latitude],
+    #   longitude: params[:longitude]
+    # )
+
+    if service.call
+      render json: { success: true }
+    else
+      render json: { success: false }, status: :unprocessable_entity
+    end
   end
 
   def update
     @motel = Motel.find(params[:id])
     @motel.images.attach(params[:images])
+
 
     respond_to do |format|
       if @motel.update(resource_params)
@@ -58,7 +76,7 @@ class MotelsController < ApplicationController
   private
 
   def resource_params
-    permited_fields = [ :name, :description, :town_id, images: [] ]
+    permited_fields = [ :name, :description, :town_id, :location, :latitude, :longitude, images: [] ]
     params.require(:motel).permit(permited_fields)
   end
 end

@@ -41,6 +41,7 @@ en:
           description: description
         create_new_town: Create new Town
       motel:
+        motels: Motels
         attributes:
           name: name
           description: description

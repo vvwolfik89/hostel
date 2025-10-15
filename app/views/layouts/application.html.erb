@@ -1,16 +1,115 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hostel</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= javascript_importmap_tags %>
+
+
+  <title>HostelHub - Find Your Home Away From Home</title>
+</head>
+<body>
+
+<header>
+  <div class="logo">HostelHub</div>
+  <nav>
+    <a href="#">Home</a>
+    <%= link_to I18n.t("activerecord.motel.motels"), motels_path %>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!--<section class="hero">-->
+<!--  <div class="hero-content">-->
+<!--    <h1>Find Your Home Away from Home</h1>-->
+<!--    <form class="search-bar" action="#" method="GET">-->
+<!--      <input type="text" name="location" placeholder="Location" required />-->
+<!--      <input type="date" name="checkin" placeholder="Check-in" required />-->
+<!--      <input type="date" name="checkout" placeholder="Check-out" required />-->
+<!--      <select name="guests" required>-->
+<!--        <option value="" disabled selected>Guests</option>-->
+<!--        <option value="1">1 Guest</option>-->
+<!--        <option value="2">2 Guests</option>-->
+<!--        <option value="3">3 Guests</option>-->
+<!--        <option value="4">4 Guests</option>-->
+<!--        <option value="5+">5+ Guests</option>-->
+<!--      </select>-->
+<!--      <button type="submit">Search</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<section class="featured">-->
+<!--  <h2>Featured Hostels</h2>-->
+<!--  <div class="hostel-cards">-->
+<!--    <div class="hostel-card">-->
+<!--      <img src="https://images.unsplash.com/photo-1501117716987-c8e0f3d7cc5d?auto=format&fit=crop&w=800&q=80" alt="Hostel 1" />-->
+<!--      <div class="hostel-info">-->
+<!--        <h3>Sunshine Hostel</h3>-->
+<!--        <div class="rating">★★★★☆</div>-->
+<!--        <div class="price">$15/night</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="hostel-card">-->
+<!--      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Hostel 2" />-->
+<!--      <div class="hostel-info">-->
+<!--        <h3>City Lights Hostel</h3>-->
+<!--        <div class="rating">★★★☆☆</div>-->
+<!--        <div class="price">$18/night</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="hostel-card">-->
+<!--      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Hostel 3" />-->
+<!--      <div class="hostel-info">-->
+<!--        <h3>Urban Vibes Hostel</h3>-->
+<!--        <div class="rating">★★★★★</div>-->
+<!--        <div class="price">$20/night</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="hostel-card">-->
+<!--      <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=800&q=80" alt="Hostel 4" />-->
+<!--      <div class="hostel-info">-->
+<!--        <h3>Backpacker's Haven</h3>-->
+<!--        <div class="rating">★★★★☆</div>-->
+<!--        <div class="price">$17/night</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<section class="why-choose">-->
+<!--  <div class="why-item">-->
+<!--    <div class="why-icon">💰</div>-->
+<!--    <div class="why-text">Budget-Friendly</div>-->
+<!--  </div>-->
+<!--  <div class="why-item">-->
+<!--    <div class="why-icon">🤝</div>-->
+<!--    <div class="why-text">Community Vibe</div>-->
+<!--  </div>-->
+<!--  <div class="why-item">-->
+<!--    <div class="why-icon">🛡️</div>-->
+<!--    <div class="why-text">Safe & Clean</div>-->
+<!--  </div>-->
+<!--</section>-->
+<%= yield %>
+<footer>
+  <p>Subscribe to our newsletter for the latest deals</p>
+  <form action="#" method="POST">
+    <input type="email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+
+</footer>
+
+</body>
 </html>
+
