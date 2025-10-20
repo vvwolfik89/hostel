@@ -34,18 +34,12 @@ class MotelsController < ApplicationController
   end
 
   def edit
-    @motel = Motel.find(params[:id])
+    # @motel = Motel.find(params[:id])
     # service = SaveGeoPositionService.new(
     #   # locatable: locatable,
     #   latitude: params[:latitude],
     #   longitude: params[:longitude]
     # )
-
-    if service.call
-      render json: { success: true }
-    else
-      render json: { success: false }, status: :unprocessable_entity
-    end
   end
 
   def update
@@ -71,6 +65,12 @@ class MotelsController < ApplicationController
       format.html { redirect_to motels_url }
       format.json { head :no_content }
     end
+  end
+
+  def point
+    motel = Motel.find(params[:id].to_i)
+
+    render json: motel.slice(:id, :name, :latitude, :longitude)
   end
 
   private

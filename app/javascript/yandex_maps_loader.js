@@ -15,7 +15,6 @@ export function loadYandexMapsAPI(apiKey) {
             });
         };
         script.onerror = () => reject(new Error('Failed to load Yandex Maps API'));
-
         document.head.appendChild(script);
     });
 }

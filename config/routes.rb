@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :motels do
-    resource :location, only: [:create, :update]
+    # resource :location, only: [:create, :update]
+    member do
+      get :point
+    end
   end
-
 
   resources :countries
   resources :towns
