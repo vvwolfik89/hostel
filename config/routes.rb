@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :motels
+  resources :motels do
+    # resource :location, only: [:create, :update]
+    member do
+      get :point
+    end
+  end
+
   resources :countries
   resources :towns
   devise_for :users

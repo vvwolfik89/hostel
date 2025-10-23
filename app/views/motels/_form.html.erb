@@ -14,29 +14,57 @@
     <%= form.collection_select :town_id, Town.order(:name), :id, :name %>
   </div>
 
-    <div>
-      <%= form.label :images %><br>
-      <%= form.file_field :images, multiple: true %>
-      <% if @motel.images.attached? %>
-        <% @motel.images.each do |image| %>
-          <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
-          <%= image_tag rails_storage_proxy_path(image) %>
-          <%= link_to 'Delete image', purge_attachment_path(image),
-                      data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-        <% end %>
+  <div>
+    <%= form.label :images %><br>
+    <%= form.file_field :images, multiple: true %>
+    <% if @motel.images.attached? %>
+      <% @motel.images.each do |image| %>
+        <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+        <%= image_tag rails_storage_proxy_path(image) %>
+        <%= link_to 'Delete image', purge_attachment_path(image),
+                    data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
+    <% end %>
 
-    </div>
+  </div>
 
-    <!--  <div class="box_image">-->
-    <!--    <div class="box_content">-->
-    <%#= image_tag image %>
-    <%#= check_box_tag "deleted_img_ids[]", image.id %>
-    <!--    </div>-->
-    <!--  </div>-->
+  <!--  <div class="box_image">-->
+  <!--    <div class="box_content">-->
+  <%#= image_tag image %>
+  <%#= check_box_tag "deleted_img_ids[]", image.id %>
+  <!--    </div>-->
+  <!--  </div>-->
 
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
+  <div id="map" data-model="motel" style="width: 50%; height: 400px"></div>
+
+  <!--  <script type="module">-->
+  <!--      import { lo } from 'special_feature';-->
+
+  <!--      initSpecialFeature();-->
+  <!--  </script>-->
+
+  <!--  <script src="https://api-maps.yandex.ru/2.1/?apikey=334c8aeb-9225-4daa-864f-2ef6abce925e&load=Map&lang=ru_RU" type="text/javascript"></script>-->
+
+  <!--  <script>-->
+  <!--      ymaps.ready(function () {-->
+  <!--          var myMap = new ymaps.Map('map', {-->
+  <!--              center: [55.76, 37.64], // Москва, например-->
+  <!--              zoom: 10-->
+  <!--          });-->
+  <!--      });-->
+  <!--  </script>-->
+  <div>
+    <%= form.label :latitude %><br>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div>
+    <%= form.label :longitude %><br>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
 
