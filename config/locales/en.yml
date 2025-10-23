@@ -36,6 +36,7 @@ en:
           description: description
         create_new_country: Create new Country
       town:
+        towns: Towns
         attributes:
           name: name
           description: description

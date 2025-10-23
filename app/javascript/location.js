@@ -4,6 +4,8 @@ import {loadYandexMapsAPI} from './yandex_maps_loader.js';
 // console.log('DOMContentLoaded — ищем #map', document.getElementById('map'));
 document.addEventListener('turbo:load', () => {
     const mapContainer = document.getElementById('map');
+    const modelName = mapContainer.dataset.model;
+    debugger
     if (mapContainer) {
         loadYandexMapsAPI('334c8aeb-9225-4daa-864f-2ef6abce925e')
             .then(ymaps => {
@@ -13,9 +15,9 @@ document.addEventListener('turbo:load', () => {
                 });
 
                 var placemark;
-
-                const latitude = document.getElementById('motel_latitude')
-                const longitude = document.getElementById('motel_longitude')
+                debugger
+                const latitude = document.getElementById(`${modelName}_latitude`);
+                const longitude = document.getElementById(`${modelName}_longitude`);
 
                 if (latitude.value) {
                     placemark = new ymaps.Placemark([latitude.value,longitude.value]);
