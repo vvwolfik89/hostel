@@ -34,7 +34,7 @@ class MotelsController < ApplicationController
   end
 
   def edit
-    # @motel = Motel.find(params[:id])
+    @motel = Motel.find(params[:id])
     # service = SaveGeoPositionService.new(
     #   # locatable: locatable,
     #   latitude: params[:latitude],
