@@ -7,6 +7,7 @@ class Motel < ApplicationRecord
 
   belongs_to :town
   has_many_attached :images
+  has_and_belongs_to_many :services
 
   def geo_position
     self.latitude & self.longitude ? true : false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_21_195240) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_27_204201) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,6 +55,20 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_21_195240) do
     t.string "position"
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "motels_services", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "motel_id", null: false
+    t.bigint "service_id", null: false
+    t.index ["motel_id", "service_id"], name: "index_motels_services_on_motel_id_and_service_id"
+    t.index ["service_id", "motel_id"], name: "index_motels_services_on_service_id_and_motel_id"
+  end
+
+  create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "towns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
