@@ -13,9 +13,7 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(resource_params)
-    @service.image.attach(params[:image])
-
-
+    # @service.image.attach(params[:image])
 
     respond_to do |format|
       if @service.save
@@ -35,16 +33,11 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
-    # service = SaveGeoPositionService.new(
-    #   # locatable: locatable,
-    #   latitude: params[:latitude],
-    #   longitude: params[:longitude]
-    # )
   end
 
   def update
     @service = Service.find(params[:id])
-    @service.image.attach(params[:image])
+    @service.image.attach(params[:image]) if params[:image]
 
 
     respond_to do |format|

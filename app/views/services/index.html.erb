@@ -16,9 +16,14 @@
     <% @services.each do |service| %>
       <tr>
         <td><a href="<%= service_path(service) %>">
-          <h5> <%= service.name %></h5>
+          <h5> <%= service.title %></h5>
         </a></td>
         <td><%= service.description %></td>
+        <td>
+          <% if service.image.attached? %>
+              <%= image_tag service.image, style: "max-width: 400px;" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>

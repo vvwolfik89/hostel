@@ -13,7 +13,16 @@
     <%= form.label :town_id %><br>
     <%= form.collection_select :town_id, Town.order(:name), :id, :name %>
   </div>
-
+  <h3>Services:</h3>
+  <%= form.collection_check_boxes :service_ids, Service.all, :id, :title do |service| %>
+    <div>
+      <%= service.check_box %>
+      <% if service.object.image.attached? %>
+        <%= image_tag service.object.image.variant(resize_to_limit: [50, 50]) %>
+      <% end %>
+      <%= service.label %>
+    </div>
+  <% end %>
   <div>
     <%= form.label :images %><br>
     <%= form.file_field :images, multiple: true %>

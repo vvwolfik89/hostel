@@ -8,12 +8,18 @@
       <% @motel.images.each do |img| %>
         <%= image_tag rails_storage_proxy_path(img), size: "512x320" %>
       <% end %>
-      <!--    <a href="#" id="showMap">Показать карту</a>-->
-      <!--    <div id="YMapsID" style="width:500px;height:500px;display:none"></div>-->
-      <div id="yandex-map"  data-motel='<%=@motel.slice(:id, :name, :latitude, :longitude)%>' style="width: 50%; height: 400px">
-
+      <div>
+        <% @motel.services.each  do |service| %>
+            <div>
+              <%= service.title %>
+              <% if service.image.attached? %>
+                <%= image_tag service.image.variant(resize_to_limit: [50, 50]) %>
+              <% end %>
+            </div>
+        <% end %>
       </div>
 
+      <div id="yandex-map"  data-motel='<%=@motel.slice(:id, :name, :latitude, :longitude)%>' style="width: 50%; height: 400px"></div>
       <script src="https://api-maps.yandex.ru/2.1/?apikey='334c8aeb-9225-4daa-864f-2ef6abce925e'&lang=ru_RU" type="text/javascript"></script>
 
 
