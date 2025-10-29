@@ -47,3 +47,9 @@ en:
           name: name
           description: description
         create_new_motel: Create new Motel
+      service:
+        services: Services
+        attributes:
+          name: name
+          description: description
+        create_new_service: Create new Service

@@ -34,7 +34,7 @@ class MotelsController < ApplicationController
   end
 
   def edit
-    # @motel = Motel.find(params[:id])
+    @motel = Motel.find(params[:id])
     # service = SaveGeoPositionService.new(
     #   # locatable: locatable,
     #   latitude: params[:latitude],
@@ -76,7 +76,7 @@ class MotelsController < ApplicationController
   private
 
   def resource_params
-    permited_fields = [ :name, :description, :town_id, :location, :latitude, :longitude, images: [] ]
+    permited_fields = [ :name, :description, :town_id, :location, :latitude, :longitude, images: [], service_ids: [] ]
     params.require(:motel).permit(permited_fields)
   end
 end

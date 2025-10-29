@@ -6,7 +6,11 @@
       <% @town.motels.each do |m| %>
         <p><%= m.name %></p>
       <% end %>
+      <div id="yandex-map"  data-motel='<%=@town.slice(:id, :name, :latitude, :longitude)%>' style="width: 50%; height: 400px">
 
+      </div>
+
+      <script src="https://api-maps.yandex.ru/2.1/?apikey='334c8aeb-9225-4daa-864f-2ef6abce925e'&lang=ru_RU" type="text/javascript"></script>
     </div>
   </div>
   <div>

@@ -58,7 +58,7 @@ class TownsController < ApplicationController
   private
 
   def resource_params
-    permited_fields = [ :name, :description, :country_id ]
+    permited_fields = [ :name, :description, :country_id, :location, :latitude, :longitude ]
     params.require(:town).permit(permited_fields)
   end
 end
